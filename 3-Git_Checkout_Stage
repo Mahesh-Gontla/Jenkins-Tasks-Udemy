@@ -1,0 +1,16 @@
+pipeline{
+    agent any
+    stages{
+        stage("Checkout Stage"){
+            steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Mahesh-Gontla/Jenkins-Tasks-Udemy.git']])
+            }
+        }
+        stage("Contents"){
+            steps{
+                sh 'ls'
+            }
+        }
+    }
+    
+}
