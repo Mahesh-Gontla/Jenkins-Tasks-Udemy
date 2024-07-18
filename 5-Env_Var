@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    environment {
+        Name = "Mahesh"
+    }
+    stages{
+        stage("Usage of Env Variables"){
+            steps{
+                echo "My name is ${env.Name}"
+            }
+        }
+    }
+}
