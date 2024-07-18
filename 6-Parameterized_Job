@@ -1,0 +1,14 @@
+pipeline{
+    agent any
+    parameters {
+        string defaultValue: 'Mahesh', description: 'Enter the value', name: 'FirstName'
+    }
+    stages{
+        stage("Paramaterized Job"){
+            steps{
+                echo "My name is $params.FirstName"
+            }
+        }
+    }
+
+}
