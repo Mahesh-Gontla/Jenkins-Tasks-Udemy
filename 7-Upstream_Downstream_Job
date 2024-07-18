@@ -1,0 +1,31 @@
+// Upstream Job Code
+
+pipeline{
+    agent any
+    stages{
+        stage("Upstream Job"){
+            steps{
+                echo "This is Upstream Job"
+            }
+        }
+        stage("Downstream Job"){
+            steps{
+                build job: '7-Downstream_Job'
+            }
+        }
+        
+    }
+}
+
+// Downstream Job Code
+
+pipeline{
+    agent any
+    stages{
+        stage("First Job"){
+            steps{
+                echo 'This is a Downstream Job'
+            }
+        }
+    }
+}
