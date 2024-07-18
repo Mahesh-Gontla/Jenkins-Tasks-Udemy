@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    tools {
+    maven 'Maven'
+    }
+
+    stages{
+        stage("Checkout Stage"){
+            steps{
+                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Mahesh-Gontla/addressbook.git']])
+            }
+        }
+        stage("Build Project"){
+            steps{
+                sh 'mvn compile'
+            }
+        }
+    }
+}
