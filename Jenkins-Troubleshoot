@@ -1,0 +1,51 @@
+//Changing port number in jenkins
+
+sudo systemctl edit jenkins --full
+
+// Jenkins-logs
+
+1.GUI 
+2./var/lib/jenkins -- logs -- tasks
+3.journalctl -u jenkins
+
+// time-stamper plugin(Jenkins-timestamps)
+
+pipeline{
+    agent any
+    options {
+        timestamps()
+    }
+
+    stages{
+        stage("first step"){
+            steps{
+                echo "hi"
+            }
+        }
+        stage("second step"){
+            steps{
+                echo "hi"
+            }
+        }
+    }
+}
+
+//Jenkins-job-timeout-issue
+
+pipeline{
+    agent any
+    options {
+        timeout(activity: true, time: 7, unit: 'SECONDS')
+    }
+    stages{
+        stage("timeout check"){
+            steps{
+                script{
+                    def test = input id: 'State', message: 'you are ready', submitter: 'admin'
+                }
+            }
+        }
+    }
+}
+
+//Auto-scheduling Job(Build Triggers)
