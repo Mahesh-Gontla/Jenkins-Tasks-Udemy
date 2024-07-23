@@ -1,0 +1,16 @@
+Add Users -- Permissions
+------------------------
+Project Based -- Access is given inside the job configuration
+Role Based -- Access is based on roles and groups
+Logged-In can do Anything
+Anyone can do Anything
+
+// Jenkins-backup-strategy
+Plugin Based -- ThinBackup plugin can be used for backup(backup of jenkins)
+
+// Jenkins-Upgrade
+
+//Jenkins-CLI
+
+// Blue ocean plugin -- visualization
+
