@@ -14,3 +14,24 @@ Plugin Based -- ThinBackup plugin can be used for backup(backup of jenkins)
 
 // Blue ocean plugin -- visualization
 
+//Input-during-runtime
+
+//Taking input during job run
+
+pipeline{
+    agent any
+    stages{
+        stage("input try"){
+            steps{
+                script{
+                    def approval = input id: 'Deploy', message: 'Approve for deployment', submitter: 'admin,Mahesh'
+                }
+            }
+        }
+        stage("Deployment"){
+            steps{
+                echo "deploy"
+            }
+        }
+    }
+}
